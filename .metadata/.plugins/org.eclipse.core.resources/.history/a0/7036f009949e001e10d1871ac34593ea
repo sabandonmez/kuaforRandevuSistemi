@@ -1,0 +1,25 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+public class Admin {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	
+	@OneToOne
+	@JoinColumn(name = "user_id",referencedColumnName = "id")
+	private User user;
+	
+	@Column(name= "can_approve_empleyee")
+	private boolean canApproveEmployee;
+	
+	@Column(name= "can_reject_employee")
+	private boolean canRejectEmployee;
+}

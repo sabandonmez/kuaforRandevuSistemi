@@ -1,0 +1,8 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+public enum Role {
+		CUSTOMER,
+		HAIRDRASSER,
+		BEAUTICIAN,
+		ADMIN
+}

@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts;
+
+public interface WorkingHourRepository {
+
+}

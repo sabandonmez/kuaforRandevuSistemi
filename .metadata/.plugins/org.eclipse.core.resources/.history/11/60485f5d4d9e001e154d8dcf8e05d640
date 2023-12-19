@@ -1,0 +1,13 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "customerID")
+	private int customerID;
+}

@@ -1,0 +1,30 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
+
+@Table(name = "contactInfos")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class ContactInfo {
+private int contactInfoID;
+private int userID;
+private String phoneNumber;
+private String mailAddress;
+
+@OneToOne
+@JoinColumn(name="user_id",referencedColumnName = "userID")
+private User user;
+
+
+}
