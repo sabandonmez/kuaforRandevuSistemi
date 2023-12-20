@@ -1,0 +1,14 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import java.util.List;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.CreateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.User;
+
+
+public interface UserService {
+	List<GetAllUsersResponse> getAll();
+//	void add(CreateUserRequest createUserRequest);
+	public User add(CreateUserRequest request);
+}

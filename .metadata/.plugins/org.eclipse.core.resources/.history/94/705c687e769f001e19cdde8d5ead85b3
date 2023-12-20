@@ -1,0 +1,19 @@
+package ybsGroup.kuaforRandevuSistemi.business.rules;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.HairdresserRepository;
+
+@AllArgsConstructor
+@Service
+public class HairdresserBusinessRules {
+	private HairdresserRepository hairdresserRepository;
+	
+	public void checkIfHairdresserEmailExists(String email) {
+		if (hairdresserRepository) {
+			
+		}
+		
+	}
+}

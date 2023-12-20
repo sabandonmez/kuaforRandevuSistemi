@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllUsersResponse {
-	private int userId;
-	private String userName;
+	private String firstName;
+	private String lastName;
 }

@@ -1,0 +1,7 @@
+package ybsGroup.kuaforRandevuSistemi.business.rules;
+
+public class HairdresserBusinessRules {
+	public void checkIfHairdresserEmailExists(String email) {
+		
+	}
+}

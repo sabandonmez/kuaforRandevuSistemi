@@ -23,15 +23,11 @@ import lombok.Setter;
 public class Service {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "serviceID")
-	private int serviceID;
+	@Column(name = "id")
+	private int id;
 	
-	@Column(name = "serviceName")
 	private String serviceName;
-	
 	private int duration;
-	
-	@Column(name="price")
 	private double price;
 	
 	@ManyToMany(mappedBy = "services")

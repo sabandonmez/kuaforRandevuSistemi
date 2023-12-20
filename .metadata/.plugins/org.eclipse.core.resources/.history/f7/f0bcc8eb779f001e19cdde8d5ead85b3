@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.webApi.controllers;
+
+public class HairdresserController {
+
+}

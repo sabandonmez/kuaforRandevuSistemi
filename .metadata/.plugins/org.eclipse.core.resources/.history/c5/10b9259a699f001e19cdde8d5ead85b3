@@ -1,0 +1,25 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "customers")
+public class Customer extends User{public Customer(int id, String firstName, String lastName, String password, Role role, ContactInfo contactInfo) {
+		super(id, firstName, lastName, password, role, contactInfo);
+	}
+
+@OneToMany
+private Set<Appointment> appointments = new HashSet<>();
+}

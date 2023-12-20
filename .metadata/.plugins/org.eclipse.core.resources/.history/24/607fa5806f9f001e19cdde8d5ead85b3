@@ -1,0 +1,16 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+import java.util.List;
+
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.HairdresserService;
+import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllHairdressersResponse;
+
+public class HairdresserManager implements HairdresserService {
+
+	@Override
+	public List<GetAllHairdressersResponse> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
