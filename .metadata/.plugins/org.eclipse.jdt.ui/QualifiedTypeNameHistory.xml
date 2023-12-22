@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Rule"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="org.hibernate.annotations.CascadeType"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.EntityGraph.EntityGraphType"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Position"/>
-    <fullyQualifiedTypeName name="java.time.LocalTime"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToOne"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
-    <fullyQualifiedTypeName name="java.util.HashSet"/>
-    <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.WorkingHours"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Employee"/>
@@ -26,9 +13,6 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Status"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Enumerated"/>
@@ -43,7 +27,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Size"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Hairdresser"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.UniqueElements"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -53,11 +36,28 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.abstracts.HairdresserService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.GetAllHairdressersResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.CreateHairdresserRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.rules.HairdresserBusinessRules"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.HairdresserRepository"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.SecurityFilterChain"/>
+    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.UpdateHairdresserRequest"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Hairdresser"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdHairdresserResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="io.swagger.annotations.ApiModelProperty"/>
+    <fullyQualifiedTypeName name="jakarta.validation.Constraint"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserProfileRequest"/>
 </qualifiedTypeNameHistroy>

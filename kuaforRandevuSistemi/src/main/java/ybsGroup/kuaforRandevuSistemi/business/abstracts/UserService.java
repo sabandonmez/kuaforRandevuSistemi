@@ -3,6 +3,7 @@ package ybsGroup.kuaforRandevuSistemi.business.abstracts;
 import java.util.List;
 
 import ybsGroup.kuaforRandevuSistemi.business.requests.CreateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserProfileRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse;
@@ -14,4 +15,5 @@ public interface UserService {
 	void add(CreateUserRequest createUserRequest);
 	void update(UpdateUserRequest updateUserRequest);
 	void delete(int id);
+	void updateUserProfile(UpdateUserProfileRequest updateUserProfileRequest);
 }

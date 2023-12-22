@@ -12,8 +12,8 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
-			<item value="org.eclipse.tm.terminal.view.ui.TerminalsView"/>
 			<item value="org.eclipse.ui.views.AllMarkersView"/>
+			<item value="org.eclipse.tm.terminal.view.ui.TerminalsView"/>
 			<item value="org.eclipse.ui.views.ContentOutline"/>
 			<item value="org.eclipse.ui.navigator.ProjectExplorer"/>
 		</list>
@@ -24,17 +24,19 @@
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textEntries">
-			<item value="1"/>
 			<item value="2"/>
+			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="ter"/>
 			<item value="markers"/>
 			<item value="marke"/>
+			<item value="ter"/>
 			<item value="out"/>
 			<item value="project "/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>

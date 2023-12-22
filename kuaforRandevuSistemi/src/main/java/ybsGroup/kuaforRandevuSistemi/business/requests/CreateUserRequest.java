@@ -1,5 +1,8 @@
 package ybsGroup.kuaforRandevuSistemi.business.requests;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +12,24 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUserRequest {
-	private String firstName;
-	private String lastName;
-	private String password;
 	private Role role;
+	@NotNull
+	@NotBlank
+	@Size(min = 3)
+	private String firstName;
+	@NotNull
+	@NotBlank
+	@Size(min = 3)
+	private String lastName;
+	@NotNull
+	@NotBlank
+	private String email;
+	@NotNull
+	@NotBlank
+	@Size(min = 10,max = 11)
 	private String phoneNumber;
-    private String email;
+	@NotNull
+	@NotBlank
+	@Size(min=6)
+	private String password;
 }

@@ -19,6 +19,7 @@ public class CreateHairdresserRequest {
 	private String firstName;
 	@NotNull
 	@NotBlank
+	@Size(min = 3)
 	private String lastName;
 	@NotNull
 	@NotBlank

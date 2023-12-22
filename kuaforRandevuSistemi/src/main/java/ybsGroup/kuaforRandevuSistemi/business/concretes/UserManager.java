@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.CreateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserProfileRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse;
@@ -56,6 +57,9 @@ public class UserManager implements UserService {
 		if (user.getLastName() != null) {
 			user.setLastName(updateUserRequest.getLastName());
 		}
+		if (user.getRole() != null) {
+			user.setRole(updateUserRequest.getRole());
+		}
 		userRepository.save(user);
 
 	}
@@ -73,6 +77,28 @@ public class UserManager implements UserService {
 		this.userRepository.deleteById(id);
 		;
 
+	}
+
+	@Override
+	public void updateUserProfile(UpdateUserProfileRequest updateUserProfileRequest) {
+		User user = this.userRepository.findById(updateUserProfileRequest.getId()).orElseThrow();
+		
+		if (updateUserProfileRequest.getFirstName()!=null) {
+			user.setFirstName(updateUserProfileRequest.getFirstName());
+		}
+		if (updateUserProfileRequest.getLastName()!=null) {
+			user.setLastName(updateUserProfileRequest.getLastName());
+		}
+		if (updateUserProfileRequest.getEmail()!=null) {
+			user.setEmail(updateUserProfileRequest.getEmail());
+		}
+		if (updateUserProfileRequest.getPhoneNumber()!=null) {
+			user.setPhoneNumber(updateUserProfileRequest.getPhoneNumber());
+		}
+		if (updateUserProfileRequest.getPassword()!=null) {
+			user.setPassword(updateUserProfileRequest.getPassword());
+		}
+		this.userRepository.save(user);
 	}
 
 }

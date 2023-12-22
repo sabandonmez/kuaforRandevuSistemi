@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.CreateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserProfileRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse;
@@ -44,7 +45,7 @@ public class UsersController {
 			this.userService.add(createUserRequest);
 		}
 		
-		@PutMapping
+		@PutMapping("/update")
 		public void update(@RequestBody UpdateUserRequest updateUserRequest) {
 			this.userService.update(updateUserRequest);
 		}
@@ -52,6 +53,11 @@ public class UsersController {
 		@DeleteMapping("/{id}")
 		public void delete(@PathVariable int id) {
 			this.userService.delete(id);
+		}
+		
+		@PutMapping("/updateUserProfile")
+		public void updateUserProfile(@RequestBody UpdateUserProfileRequest updateUserProfileRequest) {
+			this.userService.updateUserProfile(updateUserProfileRequest);
 		}
 		
 		
