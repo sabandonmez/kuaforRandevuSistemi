@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.HairdresserService;
-import ybsGroup.kuaforRandevuSistemi.business.requests.CreateHairdresserRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateHairdresserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.CreateHairdresserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.UpdateHairdresserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllHairdressersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdHairdresserResponse;
 

@@ -1,0 +1,17 @@
+package ybsGroup.kuaforRandevuSistemi.webApi.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
+
+@RestController
+@RequestMapping("/api/appointments")
+@AllArgsConstructor
+public class AppointmentController {
+	
+private AppointmentService appointmentService;
+
+
+}

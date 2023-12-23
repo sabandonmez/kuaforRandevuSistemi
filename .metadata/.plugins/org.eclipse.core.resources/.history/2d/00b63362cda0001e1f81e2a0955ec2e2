@@ -1,0 +1,29 @@
+package ybsGroup.kuaforRandevuSistemi.business.rules;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.HairdresserRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+
+
+@Service
+public class AppointmentBusinessRules {
+	private final ServiceRepository serviceRepository;
+	private final HairdresserRepository hairdresserRepository;
+	public AppointmentBusinessRules(ServiceRepository serviceRepository, HairdresserRepository hairdresserRepository) {
+		this.serviceRepository = serviceRepository;
+		this.hairdresserRepository = hairdresserRepository;
+	}
+	
+	public int calculateTotalDuration(List<Integer> servicesId) {
+		return servicesId.stream()
+				.mapToInt(serviceId -> {
+				ybsGroup.kuaforRandevuSistemi.entities.concretes.Service service = this.serviceRepository.findById(serviceId).orElseThrow();
+				return service.getDuration();
+				}).sum();
+	}
+	
+	
+}

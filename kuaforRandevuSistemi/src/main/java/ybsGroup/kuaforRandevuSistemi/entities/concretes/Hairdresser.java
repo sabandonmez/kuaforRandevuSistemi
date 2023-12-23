@@ -25,4 +25,5 @@ public class Hairdresser extends User {
 
 	@OneToMany(mappedBy = "hairdresser")
 	private Set<Appointment> appointments = new HashSet<>();
+	
 }

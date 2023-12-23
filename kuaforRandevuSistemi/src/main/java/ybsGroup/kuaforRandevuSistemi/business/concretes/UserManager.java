@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
-import ybsGroup.kuaforRandevuSistemi.business.requests.CreateUserRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserProfileRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.CreateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserProfileRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;

@@ -1,0 +1,65 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.AppointmentRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.CustomerRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.HairdresserRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Customer;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Hairdresser;
+
+@Service
+public class AppointmentManager implements AppointmentService{
+
+	private AppointmentRepository appointmentRepository;
+	private CustomerRepository customerRepository;
+	private HairdresserRepository hairdresserRepository;
+	private ServiceRepository serviceRepository;
+	private ModelMapperService modelMapperService;
+	
+	
+
+
+	public AppointmentManager(AppointmentRepository appointmentRepository, CustomerRepository customerRepository,
+			HairdresserRepository hairdresserRepository, ModelMapperService modelMapperService) {
+		super();
+		this.appointmentRepository = appointmentRepository;
+		this.customerRepository = customerRepository;
+		this.hairdresserRepository = hairdresserRepository;
+		this.modelMapperService = modelMapperService;
+	}
+
+
+
+
+	@Override
+	public void add(CreateAppointmentRequest createAppointmentRequest) {
+		Appointment appointment = new Appointment();
+		Customer customer = customerRepository.findById(createAppointmentRequest.getCustomerId()).orElseThrow();
+		Hairdresser hairdresser = hairdresserRepository.findById(createAppointmentRequest.getHairdresserId()).orElseThrow();
+		
+		appointment.setCustomer(customer);
+		appointment.setHairdresser(hairdresser);
+		
+		Set<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> services = createAppointmentRequest.getServicesId().stream()
+														.map(serviceId -> serviceRepository.findById(serviceId)
+														.orElseThrow()).collect(Collectors.toSet());
+		appointment.setServices(services);
+		
+		appointment.setAppointmentTime(createAppointmentRequest.getAppointmentTime());
+		appointment.setNotes(createAppointmentRequest.getCustomerNotes());
+		
+		this.appointmentRepository.save(appointment);						
+	}
+	
+	
+	
+}

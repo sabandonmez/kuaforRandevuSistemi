@@ -1,8 +1,8 @@
 package ybsGroup.kuaforRandevuSistemi.business.abstracts;
 import java.util.List;
 
-import ybsGroup.kuaforRandevuSistemi.business.requests.CreateHairdresserRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.UpdateHairdresserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.CreateHairdresserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.UpdateHairdresserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllHairdressersResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdHairdresserResponse;
 

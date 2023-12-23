@@ -1,0 +1,47 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import java.time.DayOfWeek;
+import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "hairdressers")
+public class Hairdresser extends User {
+
+	public Hairdresser(int id, String firstName, String lastName, String password, String phoneNumber, String email,
+			Role role) {
+		super(id, firstName, lastName, password, phoneNumber, email, role);
+	}
+
+	@OneToMany(mappedBy = "hairdresser")
+	private Set<Appointment> appointments = new HashSet<>();
+	@ElementCollection(targetClass = DayOfWeek.class)
+	@CollectionTable(name = "hairdresser_working_days", joinColumns = @JoinColumn(name="hairdresser_id"))
+	@Column(name = "day_of_week")
+	@Enumerated(EnumType.STRING)
+	private Set<DayOfWeek> workingDays;
+	
+	@Column(name = "start_hour")
+	private LocalTime startHour;
+	
+	@Column(name = "end_hour")
+	private LocalTime endHour;
+}
