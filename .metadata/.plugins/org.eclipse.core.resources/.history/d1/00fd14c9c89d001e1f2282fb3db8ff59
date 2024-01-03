@@ -1,5 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.dataAccess.concretes;
-
-public class InMemoryUserRepository {
-
-}

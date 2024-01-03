@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+public class CustomerManager {
+
+}

@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.business.responses.customer;
+
+public class GetAllCustomerResponse {
+
+}

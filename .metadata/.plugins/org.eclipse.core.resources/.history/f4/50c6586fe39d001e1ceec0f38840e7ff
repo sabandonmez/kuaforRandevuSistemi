@@ -1,7 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts;
-import java.util.List;
-import ybsGroup.kuaforRandevuSistemi.entities.concretes.User;
-
-public interface UserRepository {
-	List<User> getAll();
-}

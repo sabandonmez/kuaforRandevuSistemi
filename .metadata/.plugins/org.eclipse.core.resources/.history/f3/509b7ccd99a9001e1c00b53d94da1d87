@@ -1,0 +1,25 @@
+package ybsGroup.kuaforRandevuSistemi.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.CustomerService;
+import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetAllUsersResponse;
+
+@RestController
+@RequestMapping("/api/customers")
+@AllArgsConstructor
+@CrossOrigin
+public class CustomerController {
+	private CustomerService customerService;
+	@GetMapping()
+	public List<GetAllCustomerResponse> getAll(){
+		return customerService.getAll();
+	}
+}

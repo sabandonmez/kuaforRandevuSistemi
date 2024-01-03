@@ -1,17 +1,18 @@
 package ybsGroup.kuaforRandevuSistemi.business.concretes;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
-import ybsGroup.kuaforRandevuSistemi.business.requests.user.CreateUserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserProfileRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserRequest;
-import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllUsersResponse;
-import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdUserResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetAllUsersResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetByIdUserResponse;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions.UserNotFoundException;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.User;
@@ -40,17 +41,28 @@ public class UserManager implements UserService {
 		return usersResponse;
 	}
 
-	@Override
-	public void add(CreateUserRequest createUserRequest) {
-
-		User user = this.modelMapperService.forRequest().map(createUserRequest, User.class);
-
-		this.userRepository.save(user);
-	}
+//	@Override
+//	public void add(CreateUserRequest createUserRequest) {
+//		 User user;
+//		    switch (createUserRequest.getUserType().toLowerCase()) {
+//		        case "hairdresser":
+//		            user = modelMapperService.forRequest().map(createUserRequest, Hairdresser.class);
+//		            break;
+//		        case "customer":
+//		            user = modelMapperService.forRequest().map(createUserRequest, Customer.class);
+//		            break;
+//		        case "admin":
+//		            user = modelMapperService.forRequest().map(createUserRequest, Admin.class);
+//		            break;
+//		        default:
+//		            throw new IllegalArgumentException("Geçersiz kullanıcı tipi");
+//		    }
+//		    userRepository.save(user);
+//	}
 
 	@Override
 	public void update(UpdateUserRequest updateUserRequest) {
-		User user = this.userRepository.findById(updateUserRequest.getId()).orElseThrow();
+		User user = this.userRepository.findById(updateUserRequest.getId()).orElseThrow(() -> new UserNotFoundException("User Not Found"));
 		if (user.getFirstName() != null) {
 			user.setFirstName(updateUserRequest.getFirstName());
 		}
@@ -75,7 +87,6 @@ public class UserManager implements UserService {
 	@Override
 	public void delete(int id) {
 		this.userRepository.deleteById(id);
-		;
 
 	}
 
@@ -95,10 +106,21 @@ public class UserManager implements UserService {
 		if (updateUserProfileRequest.getPhoneNumber()!=null) {
 			user.setPhoneNumber(updateUserProfileRequest.getPhoneNumber());
 		}
-		if (updateUserProfileRequest.getPassword()!=null) {
-			user.setPassword(updateUserProfileRequest.getPassword());
-		}
+		 if (updateUserProfileRequest.getPassword() != null) {
+		        user.setPassword(updateUserProfileRequest.getPassword());
+		    }
 		this.userRepository.save(user);
 	}
+
+	@Override
+	public boolean login(String email, String password) {
+		Optional<User> user = userRepository.findByEmail(email);
+		if (user.isPresent() && user.get().getPassword().equals(password)) {
+			return true;
+		}else {
+		return false;
+		}
+	}
+
 
 }

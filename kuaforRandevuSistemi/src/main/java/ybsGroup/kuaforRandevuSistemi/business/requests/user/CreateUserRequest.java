@@ -12,7 +12,6 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUserRequest {
-	private Role role;
 	@NotNull
 	@NotBlank
 	@Size(min = 3)
@@ -32,4 +31,6 @@ public class CreateUserRequest {
 	@NotBlank
 	@Size(min=6)
 	private String password;
+	private String userType;
+	private Role role;
 }

@@ -3,8 +3,8 @@ import java.util.List;
 
 import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.CreateHairdresserRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.hairdresser.UpdateHairdresserRequest;
-import ybsGroup.kuaforRandevuSistemi.business.responses.GetAllHairdressersResponse;
-import ybsGroup.kuaforRandevuSistemi.business.responses.GetByIdHairdresserResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.hairdresser.GetAllHairdressersResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.hairdresser.GetByIdHairdresserResponse;
 
 public interface HairdresserService {
 	List<GetAllHairdressersResponse> getAll();

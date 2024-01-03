@@ -1,8 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.business.abstracts;
-
-import java.util.List;
-import ybsGroup.kuaforRandevuSistemi.entities.concretes.User;
-
-public interface UserService {
-	List<User> getAll();
-}

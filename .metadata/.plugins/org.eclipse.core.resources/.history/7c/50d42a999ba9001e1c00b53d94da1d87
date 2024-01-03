@@ -1,0 +1,11 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import java.util.List;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
+
+public interface CustomerService {
+	List<GetAllCustomerResponse> getAll();
+	void add(CreateCustomerRequest createCustomerRequest);
+}

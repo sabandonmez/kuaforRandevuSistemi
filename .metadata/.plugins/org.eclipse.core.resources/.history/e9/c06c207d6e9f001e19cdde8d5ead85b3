@@ -1,6 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.business.responses;
-
-public class GetAllHairdressersResponse {
-	private String firstName;
-	private String lastName; 
-}

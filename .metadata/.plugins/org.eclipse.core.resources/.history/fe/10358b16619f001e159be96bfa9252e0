@@ -1,5 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.entities.concretes.enums;
-
-public enum EmployeeStatus {
-	ACTIVE, ON_LEAVE
-}

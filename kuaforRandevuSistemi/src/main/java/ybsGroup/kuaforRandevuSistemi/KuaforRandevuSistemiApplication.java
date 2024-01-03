@@ -17,5 +17,4 @@ public class KuaforRandevuSistemiApplication {
 	public ModelMapper getModelMapper () {
 		return new ModelMapper();
 	}
-	
 }

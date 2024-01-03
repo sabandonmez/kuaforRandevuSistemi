@@ -1,8 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.entities.concretes;
-
-public enum Rule {
-		CUSTOMER,
-		HAIRDRASSER,
-		BEAUTICIAN,
-		ADMIN
-}

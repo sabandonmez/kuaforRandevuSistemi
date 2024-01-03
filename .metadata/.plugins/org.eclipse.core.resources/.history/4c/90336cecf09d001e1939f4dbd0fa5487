@@ -1,5 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.core.utilities.mappers;
-
-public interface ModelMapperService {
-
-}
