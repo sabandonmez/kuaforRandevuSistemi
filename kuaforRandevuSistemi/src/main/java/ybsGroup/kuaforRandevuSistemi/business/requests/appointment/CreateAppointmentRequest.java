@@ -1,21 +1,20 @@
 package ybsGroup.kuaforRandevuSistemi.business.requests.appointment;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.requests.service.SetServicesRequest;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAppointmentRequest {
-	   private int hairdresserId;
-	    private int customerId;
-	    private List<Integer> servicesId;
-	    private LocalDate appointmentDate;
-	    private LocalTime appointmentTime;
-	    private String notes;
+	private String customerId;
+	private String workerId;
+	private LocalDateTime appointmentDate;
+	private List<Integer> serviceIds;
+	private String note;
 }

@@ -1,0 +1,7 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.employee.CreateEmployeeRequest;
+
+public interface EmployeeService {
+	void add(CreateEmployeeRequest createEmployeeRequest);
+}

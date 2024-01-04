@@ -1,0 +1,9 @@
+package ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Employee;
+
+public interface EmployeeRepository extends JpaRepository<Employee,Strin>{
+
+}

@@ -1,0 +1,13 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import java.util.List;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserProfileRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UpdateUserRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetAllUsersResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetByIdUserResponse;
+
+
+public interface UserService {
+
+}

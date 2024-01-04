@@ -1,0 +1,16 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.ServiceService;
+
+@Service
+@AllArgsConstructor
+public class ServiceManager implements ServiceService{
+	
+	
+	
+	
+
+}

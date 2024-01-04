@@ -1,0 +1,20 @@
+package ybsGroup.kuaforRandevuSistemi.business.responses.employee;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class GetEmployeeResponse {
+	private String employeeId;
+	private Role role;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phoneNumber;
+	private String userName;
+	private String password;
+}

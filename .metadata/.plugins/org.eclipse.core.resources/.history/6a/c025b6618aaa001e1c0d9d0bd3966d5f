@@ -1,0 +1,10 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
+
+public interface AppointmentService {
+	Result add(CreateAppointmentRequest createAppointmentRequest);
+}
+ 

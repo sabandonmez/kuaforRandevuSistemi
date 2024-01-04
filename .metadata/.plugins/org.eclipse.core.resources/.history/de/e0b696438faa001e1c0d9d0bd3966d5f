@@ -1,0 +1,46 @@
+package ybsGroup.kuaforRandevuSistemi.entities.concretes;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "appointments")
+public class Appointment {
+	@Id
+	@Column(name = "appointment_id")
+	private String appointmentId;
+	
+	@Column(name = "customer_id")
+	private String customerId;
+	
+	@Column(name = "employee_id")
+	private String employeeId;
+	
+	@Column(name = "appointment_date")
+	private LocalDateTime appointmentDate;
+	
+	@Column(name = "note")
+	private String note;
+
+	@ManyToOne
+	@JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
+	private Customer customer;
+
+	@ManyToOne
+	@JoinColumn(name = "employee_id", nullable = false, insertable = false, updatable = false)
+	private Employee employee;
+}

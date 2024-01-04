@@ -1,0 +1,27 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.AppointmentRepository;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
+
+@Service
+@AllArgsConstructor
+public class AppointmentManager implements AppointmentService{
+	
+	AppointmentRepository appointmentRepository;
+	private final ModelMapperService _modelMapperService;
+	
+	@Override
+	public void add(CreateAppointmentRequest createAppointmentRequest) {
+		Appointment appointment = this._modelMapperService.forRequest().map(createAppointmentRequest, Appointment.class);
+		this.appointmentRepository.save(appointment);
+		System.out.println(appointment.getEmployee().getFirstName());
+	}
+    
+}

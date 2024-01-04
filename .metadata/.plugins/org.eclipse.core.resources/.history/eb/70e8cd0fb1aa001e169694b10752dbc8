@@ -1,0 +1,26 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.ServiceService;
+import ybsGroup.kuaforRandevuSistemi.business.requests.service.CreateServiceRequest;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.EmployeeRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Employee;
+
+@Service
+@AllArgsConstructor
+public class ServiceManager implements ServiceService{
+	
+	 private final ServiceRepository serviceRepository;
+	    private final EmployeeRepository employeeRepository;
+	    private final ModelMapperService modelMapperService;
+	
+	@Override
+	public void add(CreateServiceRequest createServiceRequest) {
+		ybsGroup.kuaforRandevuSistemi.entities.concretes.Service service = modelMapperService.forRequest().map(createServiceRequest, ybsGroup.kuaforRandevuSistemi.entities.concretes.Service.class);
+	}
+
+}

@@ -14,15 +14,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
 
-
-@Table(name = "users")
-@Getter
-@Setter
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Getter
+@Setter
+@Table(name = "users")
 public class User {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -45,6 +43,4 @@ public class User {
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	
-	
 }

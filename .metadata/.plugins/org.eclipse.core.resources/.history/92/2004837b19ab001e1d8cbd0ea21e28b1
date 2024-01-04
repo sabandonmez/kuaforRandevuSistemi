@@ -1,0 +1,11 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import java.util.List;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.employee.CreateEmployeeRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.employee.GetAllEmployeeResponse;
+
+public interface EmployeeService {
+	List<GetAllEmployeeResponse> getAllEmployee();
+	void add(CreateEmployeeRequest createEmployeeRequest);
+}

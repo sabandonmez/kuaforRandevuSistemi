@@ -1,21 +1,22 @@
 package ybsGroup.kuaforRandevuSistemi.business.responses.appointment;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.service.GetAllServicesResponse;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllAppointmentsResponse {
-	private String hairdresserName;
-	private String customerName;
-	private List<String> servicesName;
-	private LocalTime appointmentTime; 
-	 private LocalDate appointmentDate;
-	private String notes;
+	private String appointmentId;
+	private GetAllCustomerResponse customer;
+	private GetAllCustomerResponse employee;
+	private LocalDateTime appointmentDate;
+	private List<GetAllServicesResponse> services;
+	private String note;
 }

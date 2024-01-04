@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllCustomerResponse {
-	private int id;
+	private String customerId;
 	private String firstName;
 	private String lastName;
+	private String email;
+	private String phoneNumber;
+	private String userName;
 }
