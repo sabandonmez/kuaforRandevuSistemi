@@ -1,7 +1,6 @@
 package ybsGroup.kuaforRandevuSistemi.business.responses.appointment;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -13,10 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetAllAppointmentsResponse {
 	private int id;
-	private String customerId;
-	private String workerId;
-	private LocalDate appointmentDate;
-	private LocalTime appointmentTime;
+	private int customerId;
+	private int workerId;
+	private LocalDateTime appointmentDate;
 	private List<Integer> serviceIds;
 	private String note;
 }

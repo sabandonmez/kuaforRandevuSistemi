@@ -10,20 +10,18 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.UpdateAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Service;
 
 @RestController
@@ -34,13 +32,12 @@ public class AppointmentController {
 	
 private AppointmentService appointmentService;
 private ServiceRepository serviceRepository;
-@PostMapping("/add-appointment")
-public void add(@RequestBody CreateAppointmentRequest createAppointmentRequest) {
+@PostMapping("/addAppointment")
+public void add(CreateAppointmentRequest createAppointmentRequest) {
 	this.appointmentService.add(createAppointmentRequest);
 }
-
 @GetMapping("get-all-appointment")
-public List<GetAllAppointmentsResponse> getAll() {
+public List<Appointment> getAll() {
 	return this.appointmentService.getAll();
 }
 @GetMapping("get-by-id-appointment")
@@ -48,10 +45,6 @@ public GetByIdAppointmentResponse getById(int id) {
 	return this.appointmentService.getById(id);
 }
 
-@PutMapping("update-appointment")
-public void update(UpdateAppointmentRequest appointmentRequest) {
-	this.appointmentService.update(appointmentRequest);
-}
 
 @DeleteMapping("delete-appointment")
 public void delete(DeleteAppointmentRequest deleteAppointmentRequest) {

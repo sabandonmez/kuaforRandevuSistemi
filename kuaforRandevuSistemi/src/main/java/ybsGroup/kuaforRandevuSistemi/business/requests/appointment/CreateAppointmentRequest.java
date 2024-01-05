@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAppointmentRequest {
-	private int customerId;
-	private int workerId;
+	private String customerId;
+	private String workerId;
 	private LocalDateTime appointmentDate;
 	private List<Integer> serviceIds;
 	private String note;

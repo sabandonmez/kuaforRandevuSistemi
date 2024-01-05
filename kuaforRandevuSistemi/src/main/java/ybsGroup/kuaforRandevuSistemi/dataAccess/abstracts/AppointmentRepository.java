@@ -9,5 +9,5 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
 
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer>{
-	List<Appointment> findAllByWorkerIdAndAppointmentDate(int workerId,LocalDate appointmentDate);
+	List<Appointment> findAllByWorkerIdAndAppointmentDate(int workerId,LocalDate appointmentDateTime);
 }
