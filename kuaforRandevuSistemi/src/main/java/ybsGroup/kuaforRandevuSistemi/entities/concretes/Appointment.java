@@ -30,10 +30,9 @@ public class Appointment {
     @Column(name = "appointment_id")
     private int id;
 	
-	@Column(name = "worker_id")
+	@Column(name="worker")
 	private int workerId;
-	
-	@Column(name = "customer_id")
+	@Column(name="customer")
 	private int customerId;
 	
 	
@@ -44,7 +43,7 @@ public class Appointment {
 	private String note;
 
 	@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
 	@ManyToMany
@@ -54,6 +53,6 @@ public class Appointment {
 	private List<Service> services;
 	
 	@ManyToOne
-	@JoinColumn(name = "worker_id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "worker_id")
 	private Worker worker;
 }

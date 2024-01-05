@@ -5,5 +5,4 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.Worker;
 
 
 public interface WorkerRepository extends JpaRepository<Worker, Integer> {
-
 }

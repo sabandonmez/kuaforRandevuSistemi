@@ -1,0 +1,39 @@
+package ybsGroup.kuaforRandevuSistemi.business.rules;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.AppointmentRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+
+
+@Service
+public class AppointmentBusinessRules {
+	private ServiceRepository serviceRepository;
+	private AppointmentRepository appointmentRepository;
+	
+	public AppointmentBusinessRules(ServiceRepository serviceRepository,
+			AppointmentRepository appointmentRepository) {
+		this.serviceRepository = serviceRepository;
+		this.appointmentRepository = appointmentRepository;
+	}
+	
+	private int calculateTotalDuration(List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> services) {
+	    int totalDuration = 0;
+	    for (Service service : services) {
+	        totalDuration += service.getDuration();
+	    }
+	    return totalDuration;
+	}
+
+	private boolean isSlotAvailable(LocalTime slot, int duration, List<LocalTime> allTimeSlots) {
+	    for (int i = 0; i < duration; i += 10) {
+	        if (!allTimeSlots.contains(slot.plusMinutes(i))) {
+	            return false;
+	        }
+	    }
+	    return true;
+	}
+	
+}

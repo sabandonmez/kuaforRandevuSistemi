@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.business.requests.appointment;
+
+public class UpdateAppointmentRequest {
+
+}

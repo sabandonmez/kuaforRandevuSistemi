@@ -1,0 +1,13 @@
+package ybsGroup.kuaforRandevuSistemi.business.abstracts;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.UpdateAppointmentRequest;
+
+public interface AppointmentService {
+	
+	void add(CreateAppointmentRequest createAppointmentRequest);
+	void update(UpdateAppointmentRequest appointmentRequest);
+	void delete(DeleteAppointmentRequest deleteAppointmentRequest);
+}
+ 
