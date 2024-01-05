@@ -24,14 +24,11 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.abstracts.WorkerService"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.UpdateAppointmentRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse"/>
@@ -42,7 +39,6 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.rules.AppointmentBusinessRules"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
@@ -55,9 +51,13 @@
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.CustomerRepository"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.WorkerRepository"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Customer"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Worker"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
 </qualifiedTypeNameHistroy>
