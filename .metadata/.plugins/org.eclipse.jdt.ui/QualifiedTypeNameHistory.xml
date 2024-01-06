@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.naming.spi.DirStateFactory.Result"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.service.CreateServiceRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.CreateEmployeeRequest"/>
@@ -30,23 +29,9 @@
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.UpdateAppointmentRequest"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.rules.AppointmentBusinessRules"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
-    <fullyQualifiedTypeName name="java.time.LocalTime"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.CustomerRepository"/>
@@ -56,8 +41,23 @@
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.time.LocalTime"/>
 </qualifiedTypeNameHistroy>

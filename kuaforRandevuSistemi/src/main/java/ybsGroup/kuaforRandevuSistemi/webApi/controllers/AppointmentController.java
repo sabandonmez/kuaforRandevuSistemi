@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,6 @@ import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
-import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
@@ -52,14 +52,16 @@ public void delete(DeleteAppointmentRequest deleteAppointmentRequest) {
 }
 
 @GetMapping("/available-slots")
-public List<LocalTime> getAvailableSlots(@RequestParam int workerId, 
-                                         @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+public ResponseEntity<List<LocalTime>> getAvailableSlots(@RequestParam int workerId, 
+										 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate appointmentDate,
                                          @RequestParam List<Integer> serviceIds) {
 
     List<Service> selectedServices = serviceIds.stream()
                                                .map(id -> serviceRepository.findById(id).orElseThrow())
                                                .collect(Collectors.toList());
 
-    return appointmentService.findAvailableSlots(workerId, date, selectedServices);
+    List<LocalTime> availableSlots = appointmentService.findAvailableSlots(workerId, appointmentDate, selectedServices);
+    return ResponseEntity.ok(availableSlots);
+
 }
 }

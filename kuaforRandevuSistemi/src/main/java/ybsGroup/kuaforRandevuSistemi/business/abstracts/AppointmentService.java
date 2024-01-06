@@ -12,7 +12,7 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
 public interface AppointmentService {
 	List<Appointment> getAll();
 	GetByIdAppointmentResponse getById(int id);
-	List<LocalTime> findAvailableSlots(int workerId, LocalDate appointmentDate,  List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> selectedServices);
+	List<LocalTime> findAvailableSlots(int workerId, LocalDate appointmentDate, List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> selectedServices);
 	void add(CreateAppointmentRequest createAppointmentRequest);
 	void delete(DeleteAppointmentRequest deleteAppointmentRequest);
 }
