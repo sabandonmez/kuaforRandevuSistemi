@@ -2,7 +2,6 @@ package ybsGroup.kuaforRandevuSistemi.business.concretes;
 
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,24 +67,25 @@ public class AppointmentManager implements AppointmentService{
 
 		    // Repository'den randevuları al
 		    List<Appointment> appointments = appointmentRepository.findAllByWorkerIdAndAppointmentDateBetween(
-		        workerId, appointmentDate.atTime(startTime), appointmentDate.atTime(endTime));
+		            workerId, appointmentDate.atTime(startTime), appointmentDate.atTime(endTime));
 
 		    // Mevcut randevular için zaman dilimlerini kaldır
-		    for (Appointment appointment : appointments) {
-		    	LocalTime appointmentStartTime = appointment.getAppointmentDate().toLocalTime();
-		        // Hizmet süresi kadar ileri zaman dilimlerini kaldır
+		    appointments.forEach(appointment -> {
+		        LocalTime appointmentStart = appointment.getAppointmentDate().toLocalTime();
 		        int serviceDuration = calculateTotalDuration(appointment.getServices());
-		        for (int i = 0; i < serviceDuration; i += 10) {
-		            LocalTime timeSlot = appointmentStartTime.plusMinutes(i);
+		        LocalTime timeSlot = appointmentStart;
+		        while (serviceDuration > 0) {
 		            allTimeSlots.remove(timeSlot);
+		            timeSlot = timeSlot.plusMinutes(10);
+		            serviceDuration -= 10;
 		        }
-		    }
+		    });
 
 		    int customerServiceDuration = calculateTotalDuration(selectedServices);
 
 		    // Müşteri için uygun zaman dilimlerini bul
 		    return allTimeSlots.stream()
-		        .filter(slot -> isSlotAvailable(slot, customerServiceDuration, allTimeSlots))
+		        .filter(slot -> isSlotAvailable(slot, customerServiceDuration, allTimeSlots, appointments))
 		        .collect(Collectors.toList());
 	}
 	
@@ -98,8 +98,15 @@ public class AppointmentManager implements AppointmentService{
 	    return totalDuration;
 	}
 
-	private boolean isSlotAvailable(LocalTime slot, int duration, List<LocalTime> allTimeSlots) {
-	    LocalTime endTime = slot.plusMinutes(duration);
-	    return !endTime.isAfter(LocalTime.of(21, 0)) && allTimeSlots.contains(slot);
+	private boolean isSlotAvailable(LocalTime slot, int duration, List<LocalTime> allTimeSlots ,List<Appointment> appointments) {
+		LocalTime endSlot = slot.plusMinutes(duration);
+	    for (Appointment appointment : appointments) {
+	        LocalTime appointmentStart = appointment.getAppointmentDate().toLocalTime();
+	        LocalTime appointmentEnd = appointmentStart.plusMinutes(calculateTotalDuration(appointment.getServices()));
+	        if (!slot.isAfter(appointmentEnd) && !endSlot.isBefore(appointmentStart)) {
+	            return false; // Çakışma 
+	        }
+	    }
+	    return allTimeSlots.contains(slot);
 	}
 }
