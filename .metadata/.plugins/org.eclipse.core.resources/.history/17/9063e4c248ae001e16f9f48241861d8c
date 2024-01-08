@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions;
+
+public class CustomerNotFoundException {
+
+}

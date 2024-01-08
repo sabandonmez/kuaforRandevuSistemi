@@ -1,0 +1,53 @@
+package ybsGroup.kuaforRandevuSistemi.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import ybsGroup.kuaforRandevuSistemi.business.abstracts.WorkerService;
+import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetAllWorkerResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetByIdWorkerResponse;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.WorkerRepository;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.Worker;
+
+@Service
+@AllArgsConstructor
+public class WorkerManager implements WorkerService {
+	private WorkerRepository workerRepository;
+	private ModelMapperService modelMapperService;
+	@Override
+	public void add(CreateWorkerRequest createWorkerRequest) {
+		Worker worker = this.modelMapperService.forRequest().map(createWorkerRequest, Worker.class);
+		this.workerRepository.save(worker);
+		
+	}
+	@Override
+	public List<GetAllWorkerResponse> getAll() {
+		List<Worker> workers = workerRepository.findAll();
+		List<GetAllWorkerResponse> workersResponse = workers.stream().map(
+				worker -> this.modelMapperService.forResponse().map(worker, GetAllWorkerResponse.class))
+				.collect(Collectors.toList());
+		return workersResponse;
+	}
+	@Override
+	public GetByIdWorkerResponse getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void update(UpdateWorkerRequest updateWorkerRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

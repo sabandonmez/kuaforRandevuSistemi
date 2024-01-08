@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateServiceRequest {
 	
-	private String serviceId;
-    private double servicePrice;
+	private int serviceId;
+	private String serviceName;
+    private double price;
     private String note;
-    private int serviceDuration;
+    private int duration;
 }

@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.business.requests.worker;
+
+public class UpdateWorkerRequest {
+
+}

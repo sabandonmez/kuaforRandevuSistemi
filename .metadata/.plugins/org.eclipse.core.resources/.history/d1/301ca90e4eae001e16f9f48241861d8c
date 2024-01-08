@@ -1,0 +1,5 @@
+package ybsGroup.kuaforRandevuSistemi.business.requests.service;
+
+public class GetByIdServiceResponse {
+
+}

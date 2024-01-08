@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetAllServicesResponse {
 
-	private String ServiceId;
-	private String ServiceName;
+	private int serviceId;
+	private String serviceName;
 	private int duration;
 	private double price;
 }
