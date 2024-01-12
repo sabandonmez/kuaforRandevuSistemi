@@ -19,6 +19,7 @@ import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
@@ -37,7 +38,7 @@ public void add(CreateAppointmentRequest createAppointmentRequest) {
 	this.appointmentService.add(createAppointmentRequest);
 }
 @GetMapping("get-all-appointment")
-public List<Appointment> getAll() {
+public List<GetAllAppointmentsResponse> getAll() {
 	return this.appointmentService.getAll();
 }
 @GetMapping("get-by-id-appointment")

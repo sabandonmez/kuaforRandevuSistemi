@@ -13,11 +13,14 @@ import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.AppointmentService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.AppointmentRepository;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
+import ybsGroup.kuaforRandevuSistemi.entities.concretes.User;
 
 @Service
 @AllArgsConstructor
@@ -25,19 +28,51 @@ public class AppointmentManager implements AppointmentService{
 	
 	AppointmentRepository appointmentRepository;
 	ServiceRepository serviceRepository;
+	UserRepository userRepository;
 	private final ModelMapperService modelMapperService;
 	
 	@Override
 	public void add(CreateAppointmentRequest createAppointmentRequest) {
-		Appointment appointment = this.modelMapperService.forRequest().map(createAppointmentRequest, Appointment.class);
-		List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> services = serviceRepository.findByIdIn(createAppointmentRequest.getServiceIds());
-		appointment.setServices(services);
-		this.appointmentRepository.save(appointment);
+	    User customer = userRepository.findById(createAppointmentRequest.getCustomerId())
+	                                  .orElseThrow(() -> new RuntimeException("Customer not found"));
+	    User worker = userRepository.findById(createAppointmentRequest.getWorkerId())
+	                                .orElseThrow(() -> new RuntimeException("Worker not found"));
+
+	    Appointment appointment = new Appointment();
+	    appointment.setCustomer(customer);
+	    appointment.setWorker(worker);
+	    appointment.setAppointmentDate(createAppointmentRequest.getAppointmentDate());
+	    appointment.setNote(createAppointmentRequest.getNote());
+
+	    List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> services =
+	        serviceRepository.findByIdIn(createAppointmentRequest.getServiceIds());
+	    appointment.setServices(services);
+	    appointmentRepository.save(appointment);
 	}
 	@Override
-	public List<Appointment> getAll() {
-		List<Appointment> appointments = appointmentRepository.findAll();
-		return appointments;
+	public List<GetAllAppointmentsResponse> getAll() {
+	    List<Appointment> appointments = appointmentRepository.findAll();
+	    return appointments.stream().map(appointment -> {
+	        GetAllAppointmentsResponse response = new GetAllAppointmentsResponse();
+	        response.setId(appointment.getId());
+	        response.setAppointmentDate(appointment.getAppointmentDate());
+	        response.setNote(appointment.getNote());
+
+	        if (appointment.getCustomer() != null) {
+	            response.setCustomerId(appointment.getCustomer().getId());
+	        }
+	        if (appointment.getWorker() != null) {
+	            response.setWorkerId(appointment.getWorker().getId());
+	        }
+
+	        if (appointment.getServices() != null) {
+	            response.setServiceIds(appointment.getServices().stream()
+	                    .map(ybsGroup.kuaforRandevuSistemi.entities.concretes.Service::getId)
+	                    .collect(Collectors.toList()));
+	        }
+
+	        return response;
+	    }).collect(Collectors.toList());
 	}
 
 	@Override
@@ -100,13 +135,25 @@ public class AppointmentManager implements AppointmentService{
 
 	private boolean isSlotAvailable(LocalTime slot, int duration, List<LocalTime> allTimeSlots ,List<Appointment> appointments) {
 		LocalTime endSlot = slot.plusMinutes(duration);
+
 	    for (Appointment appointment : appointments) {
 	        LocalTime appointmentStart = appointment.getAppointmentDate().toLocalTime();
 	        LocalTime appointmentEnd = appointmentStart.plusMinutes(calculateTotalDuration(appointment.getServices()));
-	        if (!slot.isAfter(appointmentEnd) && !endSlot.isBefore(appointmentStart)) {
-	            return false; // Çakışma 
+
+	        // Mevcut randevu ile çakışma kontrolü
+	        if ((slot.isBefore(appointmentEnd) && slot.isAfter(appointmentStart)) || 
+	            (endSlot.isAfter(appointmentStart) && endSlot.isBefore(appointmentEnd)) ||
+	            (slot.equals(appointmentStart) || endSlot.equals(appointmentEnd))) {
+	            return false; // Çakışma var
+	        }
+
+	        // Randevudan önceki zaman dilimlerini kontrol et
+	        LocalTime bufferStart = appointmentStart.minusMinutes(duration);
+	        if (slot.isAfter(bufferStart) && slot.isBefore(appointmentStart)) {
+	            return false; // Randevu için gereken buffer süresi
 	        }
 	    }
+
 	    return allTimeSlots.contains(slot);
 	}
 }

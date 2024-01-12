@@ -1,5 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.business.responses.appointment;
-
-public class GetAppointmentResponse {
-
-}

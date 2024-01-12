@@ -30,11 +30,6 @@ public class Appointment {
     @Column(name = "appointment_id")
     private int id;
 	
-	@Column(name = "worker_id")
-	private int workerId;
-	
-	@Column(name = "customer_id")
-	private int customerId;
 	
 	@Column(name = "appointment_date")
 	private LocalDateTime appointmentDate;
@@ -43,16 +38,18 @@ public class Appointment {
 	private String note;
 
 	@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
-	private Customer customer;
+    @JoinColumn(name = "customer_id") // Burada 'customer_id' kullanılıyor
+    private User customer;
 
+    @ManyToOne
+    @JoinColumn(name = "worker_id") // Farklı bir sütun adı kullanılıyor
+    private User worker;
+
+	
 	@ManyToMany
 	@JoinTable(name = "appointments_services",
 			joinColumns = @JoinColumn(name = "appointment_id"),
 			inverseJoinColumns = @JoinColumn(name = "service_id"))
 	private List<Service> services;
 	
-	@ManyToOne
-	@JoinColumn(name = "worker_id", nullable = false, insertable = false, updatable = false)
-	private Worker worker;
 }
