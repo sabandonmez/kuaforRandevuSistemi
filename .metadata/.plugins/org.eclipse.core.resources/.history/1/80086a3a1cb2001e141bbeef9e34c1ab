@@ -1,0 +1,24 @@
+package ybsGroup.kuaforRandevuSistemi.business.rules;
+
+import org.springframework.stereotype.Service;
+
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest;
+import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository;
+
+@Service
+public class UserBusinessRules {
+	UserRepository userRepository;
+	
+	public UserBusinessRules(UserRepository userRepository) {
+		this.userRepository=userRepository;
+	}
+	
+	
+	private void validateCustomerRegisterRequest(CustomerRegisterRequest request) {
+	    if (request.getFirstName() == null || request.getLastName() == null ||
+	        request.getEmail() == null || request.getPhoneNumber() == null ||
+	        request.getPassword() == null) {
+	        throw new IllegalArgumentException("Kayıt için gerekli tüm alanlar doldurulmalıdır");
+	    }
+	
+}

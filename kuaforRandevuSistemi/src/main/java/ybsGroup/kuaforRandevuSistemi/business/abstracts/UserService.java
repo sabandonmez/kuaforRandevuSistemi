@@ -4,6 +4,9 @@ import java.util.List;
 
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.UpdateCustomerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.WorkerRegisterRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
@@ -23,4 +26,8 @@ public interface UserService {
 	GetByIdWorkerResponse getByIdWorker(int id);
 	void updateWorker(UpdateWorkerRequest updateWorkerRequest);
 	void deleteWorker(int id);
+	
+	void loginUser(UserLoginRequest userLoginRequest);
+	void customerRegister(CustomerRegisterRequest customerRegisterRequest);
+	
 }

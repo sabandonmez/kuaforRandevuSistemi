@@ -2,8 +2,6 @@ package ybsGroup.kuaforRandevuSistemi.entities.concretes;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,6 +29,8 @@ public class User {
 	    @Column(name = "user_id")
 	    private int id;
 
+	 	private String sessionKey;
+	 	
 	    @Column(name = "first_name")
 	    private String firstName;
 

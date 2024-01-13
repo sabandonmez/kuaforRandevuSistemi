@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.UpdateAppointmentRequest"/>
-    <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.rules.AppointmentBusinessRules"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.CustomerRepository"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.WorkerRepository"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
@@ -39,7 +30,6 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService"/>
     <fullyQualifiedTypeName name="org.apache.catalina.User"/>
     <fullyQualifiedTypeName name="net.bytebuddy.implementation.bytecode.Throw"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
@@ -56,8 +46,18 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.User"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.CorsRegistry"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.user.WorkerRegisterRequest"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="javax.naming.AuthenticationException"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.UserRepository"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
 </qualifiedTypeNameHistroy>

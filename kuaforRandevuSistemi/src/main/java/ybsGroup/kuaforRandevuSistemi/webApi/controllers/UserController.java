@@ -16,6 +16,8 @@ import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.UpdateCustomerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
 
@@ -82,6 +84,25 @@ public class UserController {
         return ResponseEntity.ok("Worker deleted successfully");
     }	
     
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody UserLoginRequest userLoginRequest) {
+        try {
+            userService.loginUser(userLoginRequest);
+            return ResponseEntity.ok().body("Kullanıcı başarıyla giriş yaptı.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> customerRegister(@RequestBody CustomerRegisterRequest customerRegisterRequest) {
+        try {
+            userService.customerRegister(customerRegisterRequest);
+            return ResponseEntity.ok().body("Müşteri başarıyla kaydedildi.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
     
 }
 

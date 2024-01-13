@@ -9,4 +9,5 @@ import ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role;
 
 public interface UserRepository extends JpaRepository<User,Integer>{
 	List<User> findByRole(Role role);
+	User findByEmail(String email);
 }

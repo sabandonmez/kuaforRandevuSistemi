@@ -1,6 +1,7 @@
 package ybsGroup.kuaforRandevuSistemi.business.concretes;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +10,8 @@ import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.UpdateCustomerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest;
+import ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
@@ -128,6 +131,47 @@ public class UserManager implements UserService {
 	            throw new CustomerNotFoundException("Worker with ID " + id + " not found");
 	        }
 	        this.userRepository.deleteById(id);
+	}
+
+	@Override
+	public void loginUser(UserLoginRequest userLoginRequest) {
+	    if (userLoginRequest.getEmail() == null || userLoginRequest.getPassword() == null) {
+	        throw new IllegalArgumentException("Email ve şifre boş olamaz");
+	    }
+
+	    User user = userRepository.findByEmail(userLoginRequest.getEmail());
+	    if (user == null) {
+	        throw new IllegalArgumentException("Kullanıcı bulunamadı");
+	    }
+
+	    if (!user.getPassword().equals(userLoginRequest.getPassword())) {
+	        throw new IllegalArgumentException("Yanlış şifre");
+	    }
+	    String sessionKey = UUID.randomUUID().toString();
+	    user.setSessionKey(sessionKey);
+	    userRepository.save(user);
+	}
+
+	@Override
+	public void customerRegister(CustomerRegisterRequest customerRegisterRequest) {
+		 if (customerRegisterRequest.getFirstName() == null || customerRegisterRequest.getLastName() == null ||
+				 customerRegisterRequest.getEmail() == null || customerRegisterRequest.getPhoneNumber() == null ||
+						 customerRegisterRequest.getPassword() == null) {
+			        throw new IllegalArgumentException("Kayıt için gerekli tüm alanlar doldurulmalıdır");
+			 }
+		 User existingUser = userRepository.findByEmail(customerRegisterRequest.getEmail());
+		    if (existingUser != null) {
+		        throw new IllegalStateException("Bu e-posta adresiyle zaten bir kullanıcı kayıtlı");
+		    }
+		    User newUser = new User();
+		    newUser.setFirstName(customerRegisterRequest.getFirstName());
+		    newUser.setLastName(customerRegisterRequest.getLastName());
+		    newUser.setEmail(customerRegisterRequest.getEmail());
+		    newUser.setPhoneNumber(customerRegisterRequest.getPhoneNumber());
+		    newUser.setPassword(customerRegisterRequest.getPassword());
+		    newUser.setRole(Role.CUSTOMER);
+		    userRepository.save(newUser);
+		
 	}
 
 }
