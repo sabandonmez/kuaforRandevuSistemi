@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import lombok.AllArgsConstructor;
 import ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService;
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRequest;
@@ -20,6 +19,7 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequ
 import ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.LoginUserResponse;
 
 @RestController
 @RequestMapping("/api/users")
@@ -84,13 +84,13 @@ public class UserController {
         return ResponseEntity.ok("Worker deleted successfully");
     }	
     
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody UserLoginRequest userLoginRequest) {
+    @PostMapping("/login-user")
+    public ResponseEntity<LoginUserResponse> loginUser(@RequestBody UserLoginRequest userLoginRequest) {
         try {
-            userService.loginUser(userLoginRequest);
-            return ResponseEntity.ok().body("Kullanıcı başarıyla giriş yaptı.");
+            LoginUserResponse response = userService.loginUser(userLoginRequest);
+            return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(null);
         }
     }
 
@@ -103,6 +103,12 @@ public class UserController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    
+    @GetMapping("/getByUserId/{id}")
+    public ResponseEntity<?> getByIdUser(@PathVariable int id) {
+    	return ResponseEntity.ok(userService.getByIdUser(id));
+    }
+    
     
 }
 

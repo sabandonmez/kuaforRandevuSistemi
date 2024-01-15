@@ -11,6 +11,7 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.service.CreateServiceRequ
 import ybsGroup.kuaforRandevuSistemi.business.requests.service.UpdateServiceRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.service.GetAllServicesResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.service.GetByIdServiceResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.service.ServiceTotalDurationAndPriceResponse;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
 
@@ -64,5 +65,7 @@ public class ServiceManager implements ServiceService{
 
 		return response;
 	}
+
+
 
 }

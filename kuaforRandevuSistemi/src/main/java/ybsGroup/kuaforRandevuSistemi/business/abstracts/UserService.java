@@ -6,11 +6,12 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.customer.CreateCustomerRe
 import ybsGroup.kuaforRandevuSistemi.business.requests.customer.UpdateCustomerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest;
-import ybsGroup.kuaforRandevuSistemi.business.requests.user.WorkerRegisterRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetByIdCustomerResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetByUserIdResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.LoginUserResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetAllWorkerResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetByIdWorkerResponse;
 
@@ -27,7 +28,8 @@ public interface UserService {
 	void updateWorker(UpdateWorkerRequest updateWorkerRequest);
 	void deleteWorker(int id);
 	
-	void loginUser(UserLoginRequest userLoginRequest);
+	LoginUserResponse loginUser(UserLoginRequest userLoginRequest);
 	void customerRegister(CustomerRegisterRequest customerRegisterRequest);
+	GetByUserIdResponse getByIdUser(int id);
 	
 }

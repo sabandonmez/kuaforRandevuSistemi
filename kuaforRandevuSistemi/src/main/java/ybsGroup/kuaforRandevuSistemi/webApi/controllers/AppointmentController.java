@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +24,7 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppoint
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.service.ServiceTotalDurationAndPriceResponse;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment;
 import ybsGroup.kuaforRandevuSistemi.entities.concretes.Service;
@@ -34,18 +38,22 @@ public class AppointmentController {
 private AppointmentService appointmentService;
 private ServiceRepository serviceRepository;
 @PostMapping("/addAppointment")
-public void add(CreateAppointmentRequest createAppointmentRequest) {
+public ResponseEntity<?> add(@RequestBody CreateAppointmentRequest createAppointmentRequest) {
 	this.appointmentService.add(createAppointmentRequest);
+	return ResponseEntity.status(HttpStatus.CREATED).body("Randevu başarıyla oluşturuldu.");
 }
 @GetMapping("get-all-appointment")
 public List<GetAllAppointmentsResponse> getAll() {
 	return this.appointmentService.getAll();
 }
-@GetMapping("get-by-id-appointment")
-public GetByIdAppointmentResponse getById(int id) {
-	return this.appointmentService.getById(id);
+@GetMapping("get-by-customer-appointments")
+public List<GetByIdAppointmentResponse> getByCustomerAppointments(int customerId) {
+	return this.appointmentService.getByCustomerAppointments(customerId);
 }
-
+@GetMapping("get-by-worker-appointments")
+public List<GetByIdAppointmentResponse> getByWorkerAppointments(int workerId) {
+	return this.appointmentService.getByWorkerAppointments(workerId);
+}
 
 @DeleteMapping("delete-appointment")
 public void delete(DeleteAppointmentRequest deleteAppointmentRequest) {
@@ -65,4 +73,13 @@ public ResponseEntity<List<LocalTime>> getAvailableSlots(@RequestParam int worke
     return ResponseEntity.ok(availableSlots);
 
 }
+
+
+
+@PostMapping("/calculate-total")
+public ResponseEntity<ServiceTotalDurationAndPriceResponse> calculateTotals(@RequestBody List<Integer> serviceIds) {
+    ServiceTotalDurationAndPriceResponse durationAndPrice = appointmentService.calculateTotalDurationAndPrice(serviceIds);
+    return ResponseEntity.ok(durationAndPrice);
+}
+
 }

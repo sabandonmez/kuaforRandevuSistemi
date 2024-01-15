@@ -1,5 +1,0 @@
-package ybsGroup.kuaforRandevuSistemi.business.responses.worker;
-
-public class GetAllWorkerResponse {
-
-}

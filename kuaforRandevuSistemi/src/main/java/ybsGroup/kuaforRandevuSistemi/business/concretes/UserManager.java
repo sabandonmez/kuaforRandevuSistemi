@@ -16,6 +16,8 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerReques
 import ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetByIdCustomerResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.GetByUserIdResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.user.LoginUserResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetAllWorkerResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetByIdWorkerResponse;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions.CustomerNotFoundException;
@@ -70,6 +72,12 @@ public class UserManager implements UserService {
         if (updateCustomerRequest.getLastName() != null) {
             user.setLastName(updateCustomerRequest.getLastName());
         }
+        if (updateCustomerRequest.getPassword() != null) {
+            user.setPassword(updateCustomerRequest.getPassword());
+        }
+        if (updateCustomerRequest.getLastName() != null) {
+            user.setPhoneNumber(updateCustomerRequest.getPhoneNumber());
+        }
         userRepository.save(user);
     }
 
@@ -88,7 +96,7 @@ public class UserManager implements UserService {
         user.setLastName(createWorkerRequest.getLastName());
         user.setPassword(createWorkerRequest.getPassword());
         user.setPhoneNumber(createWorkerRequest.getPhoneNumber());
-        user.setEmail(createWorkerRequest.getEmail());
+        user.setEmail(createWorkerRequest.getEmail()); 
         user.setRole(Role.HAIRDRESSER);
         userRepository.save(user);	
 	}
@@ -121,6 +129,12 @@ public class UserManager implements UserService {
 		 if (updateWorkerRequest.getLastName() != null) {
 			 user.setLastName(updateWorkerRequest.getLastName());
 		 }
+		 if (updateWorkerRequest.getPassword() != null) {
+			 user.setPassword(updateWorkerRequest.getPassword());
+		 }
+		 if (updateWorkerRequest.getPhoneNumber() != null) {
+			 user.setPhoneNumber(updateWorkerRequest.getPhoneNumber());
+		 }
 		 userRepository.save(user);
 		
 	}
@@ -134,22 +148,31 @@ public class UserManager implements UserService {
 	}
 
 	@Override
-	public void loginUser(UserLoginRequest userLoginRequest) {
-	    if (userLoginRequest.getEmail() == null || userLoginRequest.getPassword() == null) {
-	        throw new IllegalArgumentException("Email ve şifre boş olamaz");
-	    }
+	public LoginUserResponse loginUser(UserLoginRequest userLoginRequest) {
+		 if (userLoginRequest.getEmail() == null || userLoginRequest.getPassword() == null) {
+		        throw new IllegalArgumentException("Email ve şifre boş olamaz");
+		    }
 
-	    User user = userRepository.findByEmail(userLoginRequest.getEmail());
-	    if (user == null) {
-	        throw new IllegalArgumentException("Kullanıcı bulunamadı");
-	    }
+		    User user = userRepository.findByEmail(userLoginRequest.getEmail());
+		    if (user == null) {
+		        throw new IllegalArgumentException("Kullanıcı bulunamadı");
+		    }
 
-	    if (!user.getPassword().equals(userLoginRequest.getPassword())) {
-	        throw new IllegalArgumentException("Yanlış şifre");
-	    }
-	    String sessionKey = UUID.randomUUID().toString();
-	    user.setSessionKey(sessionKey);
-	    userRepository.save(user);
+		    if (!user.getPassword().equals(userLoginRequest.getPassword())) {
+		        throw new IllegalArgumentException("Yanlış şifre");
+		    }
+
+		    String sessionKey = UUID.randomUUID().toString();
+		    user.setSessionKey(sessionKey);
+		    userRepository.save(user);
+
+		    LoginUserResponse response = new LoginUserResponse();
+		    response.setId(user.getId());
+		    response.setFirstName(user.getFirstName());
+		    response.setSessionKey(sessionKey);
+		    response.setRole(user.getRole()); // Burada 'getRole()' kullanıcının rolünü dönmelidir.
+
+		    return response;
 	}
 
 	@Override
@@ -172,6 +195,13 @@ public class UserManager implements UserService {
 		    newUser.setRole(Role.CUSTOMER);
 		    userRepository.save(newUser);
 		
+	}
+
+	@Override
+	public GetByUserIdResponse getByIdUser(int id) {
+		User user = userRepository.findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with ID " + id + " not found"));
+		return this.modelMapperService.forResponse().map(user, GetByUserIdResponse.class);
 	}
 
 }

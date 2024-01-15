@@ -1,0 +1,15 @@
+package ybsGroup.kuaforRandevuSistemi.business.responses.appointment;
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class GetByIdAppointmentResponse {
+		private int id;
+		private int workerId;
+		private LocalDateTime appointmentDate;
+}

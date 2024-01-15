@@ -15,6 +15,8 @@ import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.CreateAppoint
 import ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse;
 import ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse;
+import ybsGroup.kuaforRandevuSistemi.business.responses.service.ServiceTotalDurationAndPriceResponse;
+import ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions.CustomerNotFoundException;
 import ybsGroup.kuaforRandevuSistemi.core.utilities.mappers.ModelMapperService;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.AppointmentRepository;
 import ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository;
@@ -76,10 +78,16 @@ public class AppointmentManager implements AppointmentService{
 	}
 
 	@Override
-	public GetByIdAppointmentResponse getById(int id) {
-		Appointment appointment = appointmentRepository.findById(id).orElseThrow();
-		GetByIdAppointmentResponse response = this.modelMapperService.forResponse().map(appointment, GetByIdAppointmentResponse.class);
-		return response;
+	public List<GetByIdAppointmentResponse> getByCustomerAppointments(int customerId) {
+		List<Appointment> appointments = appointmentRepository.findByCustomerId(customerId);
+	    
+	    if (appointments.isEmpty()) {
+	        throw new CustomerNotFoundException("No appointments found for customer with id: " + customerId);
+	    }
+
+	    return appointments.stream()
+	        .map(appointment -> this.modelMapperService.forResponse().map(appointment, GetByIdAppointmentResponse.class))
+	        .collect(Collectors.toList());
 	}
 
 	@Override
@@ -155,5 +163,28 @@ public class AppointmentManager implements AppointmentService{
 	    }
 
 	    return allTimeSlots.contains(slot);
+	}
+	@Override
+	public List<GetByIdAppointmentResponse> getByWorkerAppointments(int workerId) {
+		List<Appointment> appointments = appointmentRepository.findByWorkerId(workerId);
+	    
+	    if (appointments.isEmpty()) {
+	        throw new CustomerNotFoundException("No appointments found for customer with id: " + workerId);
+	    }
+
+	    return appointments.stream()
+	        .map(appointment -> this.modelMapperService.forResponse().map(appointment, GetByIdAppointmentResponse.class))
+	        .collect(Collectors.toList());
+	}
+	
+	
+	@Override
+	public ServiceTotalDurationAndPriceResponse calculateTotalDurationAndPrice(List<Integer> serviceIds) {
+	    List<ybsGroup.kuaforRandevuSistemi.entities.concretes.Service> services = serviceRepository.findAllById(serviceIds);
+	    
+	    int totalDuration = services.stream().mapToInt(ybsGroup.kuaforRandevuSistemi.entities.concretes.Service::getDuration).sum();
+	    double totalPrice = services.stream().mapToDouble(ybsGroup.kuaforRandevuSistemi.entities.concretes.Service::getPrice).sum();
+
+	    return new ServiceTotalDurationAndPriceResponse(totalDuration, totalPrice);
 	}
 }

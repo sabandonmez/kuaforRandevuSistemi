@@ -1,0 +1,6 @@
+package ybsGroup.kuaforRandevuSistemi.business.responses.user;
+
+public class LoginUserResponse {
+	private String sessionKey;
+    private String role;
+}

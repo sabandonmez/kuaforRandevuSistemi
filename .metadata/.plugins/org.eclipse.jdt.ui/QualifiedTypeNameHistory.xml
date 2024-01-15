@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetByIdAppointmentResponse"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.appointment.DeleteAppointmentRequest"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.dataAccess.abstracts.ServiceRepository"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Customer"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions.CustomerNotFoundException"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetAllCustomerResponse"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.customer.GetByIdCustomerResponse"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
@@ -32,9 +25,7 @@
     <fullyQualifiedTypeName name="net.bytebuddy.implementation.bytecode.Throw"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.abstracts.UserService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.customer.UpdateCustomerRequest"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
@@ -43,11 +34,8 @@
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.worker.CreateWorkerRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.worker.UpdateWorkerRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.worker.GetByIdWorkerResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.User"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.appointment.GetAllAppointmentsResponse"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
@@ -59,5 +47,17 @@
     <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.user.UserLoginRequest"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.requests.user.CustomerRegisterRequest"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.user.GetByUserIdResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.enums.Role"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.user.LoginUserResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Appointment"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.core.utilities.exceptions.CustomerNotFoundException"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.entities.concretes.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="ybsGroup.kuaforRandevuSistemi.business.responses.service.ServiceTotalDurationAndPriceResponse"/>
 </qualifiedTypeNameHistroy>
