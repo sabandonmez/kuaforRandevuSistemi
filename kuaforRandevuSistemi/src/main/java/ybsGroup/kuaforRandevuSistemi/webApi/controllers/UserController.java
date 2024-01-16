@@ -24,7 +24,7 @@ import ybsGroup.kuaforRandevuSistemi.business.responses.user.LoginUserResponse;
 @RestController
 @RequestMapping("/api/users")
 @AllArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class UserController {
 	private final UserService userService;
 
